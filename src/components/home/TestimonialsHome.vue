@@ -1,12 +1,14 @@
 <template>
-  <section class="bg-blue-50 mt-6 py-1 rounded-xl ">
+  <section class="bg-blue-50 mt-6 py-1 rounded-xl">
     <div class="container px-5 my-16 mx-auto">
       <div class="text-center max-w-xl mx-auto">
-        <h1 class="text-3xl md:text-5xl font-bold mb-5 text-gray-600 title">
-          Aquí todos son escuchados
-        </h1>
+        <TitleSection
+          title="Aquí todos son escuchados"
+          class="text-gray-600 text-3xl md:text-5xl"
+        />
         <h3 class="text-xl mb-5 font-light">
-          GlobalHealth comprende las necesidades de nuestros usuarios por lo cual siempre escucharemos sus sugerencias para mejorar cada día.
+          GlobalHealth comprende las necesidades de nuestros usuarios por lo
+          cual siempre escucharemos sus sugerencias para mejorar cada día.
         </h3>
         <div class="text-center mb-10">
           <span class="inline-block w-40 h-1 rounded-full bg-indigo-500"></span>
@@ -54,6 +56,7 @@
 </template>
 
 <script>
+import TitleSection from "../TitleSection.vue";
 const arrayTestiomonials = [
   {
     imagen: "https://electronicssoftware.net/wp-content/uploads/user.png",
@@ -74,7 +77,7 @@ const arrayTestiomonials = [
     imagen:
       "https://www.pngkit.com/png/full/115-1150342_user-avatar-icon-iconos-de-mujeres-a-color.png",
     testimonio:
-    "Llevo un tiempo utlizando esta tipo de plataforma, la cualidad más destacable se sustentan en la manera en la cual comprender y escuchan las necesidades de cada usuario, la cual la toman como una referencia para mejorar.",
+      "Llevo un tiempo utlizando esta tipo de plataforma, la cualidad más destacable se sustentan en la manera en la cual comprender y escuchan las necesidades de cada usuario, la cual la toman como una referencia para mejorar.",
     nombre: "Isabella Martinez",
     fecha: new Date(2010, 2, 8),
   },
@@ -82,7 +85,9 @@ const arrayTestiomonials = [
 
 export default {
   name: "TestimonialsHome",
-
+  components: {
+    TitleSection,
+  },
   setup() {
     return {
       arrayTestiomonials,

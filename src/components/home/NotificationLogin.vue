@@ -4,7 +4,7 @@
       <div class="flex items-center mb-2">
         <font-awesome-icon icon="info-circle" size="lg" class="text-white"/>
         <div class="flex flex-col ml-3 text-white">
-          <div class="font-bold text-2xl text-justify title leading-none">Ingresa a tu cuenta!</div>
+          <TitleSection title="Ingresa a tu cuenta!" class="text-2xl text-white"/>
           <p class="text-xl leading-none mt-1 nav">
            Tendrás la posibilidad de encontar diferentes servicos.
           </p>
@@ -33,7 +33,9 @@
 </template>
 
 <script>
-export default {};
+import TitleSection from '../TitleSection.vue';
+export default {
+  components: { TitleSection },};
 </script>
 
 <style scoped>

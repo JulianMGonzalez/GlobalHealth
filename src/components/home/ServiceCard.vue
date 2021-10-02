@@ -15,25 +15,15 @@
   >
     <div class="flex flex-wrap text-center mb-6 md:mb-10">
       <div class="lg:w-1/2">
-        <h2
-          class="
-            max-w-md
-            mb-6
-            text-4xl
-            font-bold
-            tracking-tight
-            text-gray-600
-            sm:leading-none
-            xl:max-w-lg
-            title
-          "
-        >
-          Nuestros servicios siempre estarán aquí!
-        </h2>
+        <TitleSection
+          title="Nuestros servicios siempre estarán aquí!"
+          class="text-gray-600 text-4xl"
+        />
       </div>
       <div class="lg:w-1/2">
         <p class="text-base text-gray-700 md:text-lg">
-          Nuestro servicios se enfocan en mejorar su atención en salud, evitando tramites y demoras que obstaculizan una buena prestacíon de salud.
+          Nuestro servicios se enfocan en mejorar su atención en salud, evitando
+          tramites y demoras que obstaculizan una buena prestacíon de salud.
         </p>
       </div>
     </div>
@@ -48,9 +38,8 @@
               w-72
               bg-white
               rounded-xl
-              border-2
-              border-gray-100
-              hover:shadow-xl
+              border-2 border-gray-100
+              hover:shadow-blue
               transform
               hover:scale-110
               transition
@@ -79,8 +68,7 @@
                     mb-4
                     py-2
                     px-14
-                    border-2
-                    border-blue-100
+                    border-2 border-blue-100
                     rounded-full
                     bg-blue-600
                     text-white
@@ -102,6 +90,7 @@
   </div>
 </template>
 <script>
+import TitleSection from "../TitleSection.vue";
 const servicesCard = [
   {
     name: "Historial clinico",
@@ -126,6 +115,7 @@ const servicesCard = [
   },
 ];
 export default {
+  components: { TitleSection },
   setup() {
     return {
       servicesCard,

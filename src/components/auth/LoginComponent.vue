@@ -304,6 +304,6 @@ export default {
   width: 84%;
   background: url('~@/assets/login.jpg');
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
 }
 </style>

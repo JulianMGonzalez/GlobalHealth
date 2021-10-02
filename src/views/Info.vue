@@ -21,21 +21,7 @@
       </div>
       <div class="w-full max-w-md p-3 bg-white rounded-2xl">
         <div class="text-center mb-6 md:mb-10">
-            <h2
-              class="
-                max-w-md
-                mb-6
-                text-4xl
-                font-bold
-                tracking-tight
-                text-blue-500
-                sm:leading-none
-                xl:max-w-lg
-                title
-              "
-            >
-              Nuestros servicios siempre estarán aquí!
-            </h2>
+          <TitleSection title="Nuestros servicios" class="text-blue-500 text-4xl"/>
         </div>
         <Disclosure
           v-slot="{ open }"
@@ -102,6 +88,7 @@
 </template>
 <script>
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
+import TitleSection from '../components/TitleSection.vue';
 const servicesAccordion = [
   { name: "Mejores", resumen: "Mejores medicamentos" },
   { name: "Mejores", resumen: "Mejores medicamentos" },
@@ -113,6 +100,7 @@ export default {
     Disclosure,
     DisclosureButton,
     DisclosurePanel,
+    TitleSection,
   },
   setup() {
     return {
