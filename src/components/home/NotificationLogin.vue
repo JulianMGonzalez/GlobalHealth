@@ -10,7 +10,8 @@
           </p>
         </div>
       </div>
-      <button
+      <router-link
+        to="/ingresa"
         class="
           flex-no-shrink
           px-10
@@ -27,7 +28,7 @@
         "
       >
         Ingresar
-      </button>
+      </router-link>
     </div>
   </div>
 </template>

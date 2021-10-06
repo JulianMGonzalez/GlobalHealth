@@ -5,7 +5,7 @@
     <div
       class="
         align-middle
-        rounded-tl-lg rounded-tr-lg
+        rounded-lg
         inline-block
         w-full
         py-4
@@ -36,12 +36,10 @@
                   items-center
                   leading-normal
                   bg-transparent
-                  rounded rounded-r-none
-                  border border-r-0 border-none
                   lg:px-3
                   py-2
                   whitespace-no-wrap
-                  text-grey-dark text-sm
+                  text-sm
                 "
                 ><font-awesome-icon :icon="['fas', 'search']" size="lg" />
               </span>
@@ -54,17 +52,16 @@
                 tracking-wide
                 w-px
                 flex-1
-                border border-none border-l-0
-                rounded rounded-l-none
+                rounded
                 px-3
                 relative
                 focus:outline-none
                 text-xxs
                 lg:text-xs lg:text-base
                 text-gray-500
-                font-thin
               "
-              placeholder="Search"
+              v-model="searchName"
+              placeholder="Carlos"
             />
           </div>
         </div>
@@ -78,16 +75,16 @@
         shadow
         overflow-hidden
         bg-white
-        shadow-dashboard
         px-8
+        mt-2
         pt-3
-        rounded-bl-lg rounded-br-lg
+        rounded-lg
       "
     >
       <table class="min-w-full">
         <thead>
           <tr>
-            <th class="px-6 py-3 leading-4 text-blue-500 tracking-wider">ID</th>
+            <th class="px-6 py-3 leading-4 text-blue-500">ID</th>
             <th class="px-6 py-3 leading-4 text-blue-500 tracking-wider">
               Nombre Completo
             </th>
@@ -109,18 +106,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item, index) in users" :key="item._id">
+          <tr v-for="(item, index) in nameFound" :key="item._id">
             <td class="px-6 py-4 whitespace-no-wrap border">
               <div class="flex items-center">
                 <div>
-                  <div class="text-sm leading-5 text-gray-800">
+                  <div class="text-sm text-gray-800">
                     {{ index + 1 }}
                   </div>
                 </div>
               </div>
             </td>
             <td class="px-6 py-4 whitespace-no-wrap border">
-              <div class="text-sm leading-5 text-blue-900">
+              <div class="text-sm text-blue-900">
                 {{ item.name }}
               </div>
             </td>
@@ -132,7 +129,6 @@
                 text-blue-900
                 border
                 text-sm
-                leading-5
               "
             >
               {{ item.email }}
@@ -145,7 +141,6 @@
                 text-blue-900
                 border
                 text-sm
-                leading-5
               "
             >
               {{ item.phone }}
@@ -158,7 +153,6 @@
                 text-blue-900
                 border
                 text-sm
-                leading-5
               "
             >
               {{ item.gender }}
@@ -170,7 +164,6 @@
                 whitespace-no-wrap
                 border
                 text-blue-900 text-sm
-                leading-5
               "
             >
               {{ item.dateFormat }}
@@ -183,7 +176,6 @@
                 text-right
                 border
                 text-sm
-                leading-5
               "
             >
               <router-link
@@ -195,8 +187,7 @@
                   rounded-lg
                   transition
                   duration-300
-                  hover:bg-blue-700
-                  hover:text-white
+                  hover:text-blue-400 
                   focus:outline-none
                 "
               >
@@ -212,13 +203,12 @@
           sm:items-center
           sm:justify-between
           mt-4
-          work-sans
         "
       >
         <div>
           <p class="text-sm leading-5 text-blue-700">
             Mostrando
-            <span class="font-medium">{{ users.length }}</span>
+            <span class="font-medium">{{ nameFound.length }}</span>
             resultados
           </p>
         </div>
@@ -229,18 +219,25 @@
 
 <script>
 import { getUsers } from "@/services/getUsers";
-import { ref } from "@vue/reactivity";
+import { computed, ref } from "@vue/reactivity";
 import { onMounted } from "@vue/runtime-core";
 import { useStore } from "vuex";
 export default {
   setup() {
+    const searchName = ref("");
     const store = useStore();
     const users = ref([]);
     onMounted(async () => {
       users.value = await getUsers(store.state.User.user.rol._id);
     });
+    const nameFound = computed(() =>
+      users.value.filter((user) => {
+        return user.name.toLowerCase().includes(searchName.value.toLowerCase());
+      })
+    );
     return {
-      users,
+      nameFound,
+      searchName,
     };
   },
 };
