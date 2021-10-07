@@ -51,13 +51,12 @@
                 leading-normal
                 tracking-wide
                 w-px
-                flex-1
                 rounded
                 px-3
                 relative
                 focus:outline-none
                 text-xxs
-                lg:text-xs lg:text-base
+                lg:text-xs
                 text-gray-500
               "
               v-model="searchName"

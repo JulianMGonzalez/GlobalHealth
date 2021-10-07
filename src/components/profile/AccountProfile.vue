@@ -13,12 +13,11 @@
               <span
                 class="
                   -ml-12
-                  text-base
                   leading-normal
                   px-4
                   py-2
                   bg-blue-500
-                  text-white text-sm
+                  text-white
                   rounded-full
                 "
                 ><font-awesome-icon icon="cloud-upload-alt"
@@ -265,7 +264,6 @@
             class="
               p-2
               bg-red-500
-              rounded-xl
               text-white
               focus:outline-none
               rounded-3xl

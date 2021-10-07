@@ -3,7 +3,7 @@
     <div class="absolute bg-blue-100 w-full h-4/6 top-0 rounded-b-3xl"></div>
     <div class="w-full z-10 mt-36">
       <transition appear name="list">
-        <div class="w-5/6 mx-auto shadow-md rounded-md shadow-2xl bg-white">
+        <div class="w-5/6 mx-auto rounded-md shadow-2xl bg-white">
           <div
             class="
               px-4
