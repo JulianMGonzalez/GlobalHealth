@@ -31,7 +31,7 @@
               to="/informacion"
               class="text-base font-medium text-gray-500 hover:text-gray-900"
             >
-              Informacion
+              Información
             </router-link>
             <NoticiasNavBar :responsive="true" />
           </PopoverGroup>
@@ -213,7 +213,7 @@ const solutions = [
     href: "#",
   },
   {
-    name: "Informacion",
+    name: "Información",
     description: "Your customers' data will be safe and secure.",
     href: "/informacion",
   },

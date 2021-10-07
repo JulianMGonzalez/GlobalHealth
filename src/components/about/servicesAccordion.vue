@@ -5,12 +5,11 @@
         flex flex-col
         justify-center
         items-center
-        bg-gray-100
         rounded-b-lg
-        py-16
         md:space-x-10
         mx-auto
         md:flex-row
+        lg:-mt-28
         lg:px-36
       "
     >
@@ -21,7 +20,7 @@
           alt="doctor"
         />
       </div>
-      <div class="w-full max-w-md p-3 rounded-2xl">
+      <div class="w-full max-w-lg p-3 rounded-2xl">
         <div class="text-center mb-6 md:mb-10">
           <TitleSection title="Nuestros servicios" class="text-blue-500 text-4xl"/>
         </div>
@@ -54,7 +53,7 @@
           >
             <div class="flex">
               <font-awesome-icon icon="user" class="w-5 h-5 text-blue-500" />
-              <span class="title">{{ item.name }}</span>
+              <span class="title ml-2">{{ item.name }}</span>
             </div>
             <font-awesome-icon
               icon="arrow-down"
