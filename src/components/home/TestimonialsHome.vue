@@ -6,12 +6,13 @@
           title="Aquí todos son escuchados"
           class="text-gray-600 text-3xl md:text-5xl"
         />
-        <ParagraphSection class="mb-5 text-gray-600"
+        <ParagraphSection
+          class="mb-5 text-gray-600"
           description="GlobalHealth comprende las necesidades de nuestros usuarios por lo
           cual siempre escucharemos sus sugerencias para mejorar cada día."
         />
         <div class="text-center mb-10">
-          <span class="inline-block w-40 h-1 rounded-full bg-indigo-500"></span>
+          <span class="inline-block w-40 h-1 rounded-full bg-blue-500"></span>
         </div>
       </div>
       <div class="flex flex-wrap -m-4">
@@ -39,9 +40,10 @@
               <h2 class="text-gray-800 text-2xl font-semibold">
                 {{ item.nombre }}
               </h2>
-              <p class="mt-2 text-gray-600 italic">
-                {{ item.testimonio }}
-              </p>
+              <ParagraphSection
+                class="mt-2 text-gray-600 italic font-light"
+                :description="item.testimonio"
+              />
             </div>
             <div class="flex justify-end mt-4">
               <p class="font-medium text-blue-500">

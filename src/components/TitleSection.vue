@@ -3,7 +3,6 @@
     class="
       max-w-md
       mb-6
-      text-4xl
       font-bold
       tracking-tight
       sm:leading-none

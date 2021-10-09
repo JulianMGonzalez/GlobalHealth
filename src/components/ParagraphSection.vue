@@ -1,5 +1,5 @@
 <template>
-  <p class="text-lg nav ">
+  <p class="text-lg nav">
     {{description}}
   </p>
 </template>

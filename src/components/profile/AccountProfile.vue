@@ -268,6 +268,9 @@
               focus:outline-none
               rounded-3xl
               hover:bg-red-600
+              transition
+              ease-in
+              duration-200
             "
           >
             Borrar cuenta
@@ -282,10 +285,10 @@
               bg-blue-500
               py-2
               px-4
-              items-center
+              hover:bg-blue-600
               transition
               ease-in
-              duration-500
+              duration-200
             "
             :disabled="this.$store.state.User.isLoading || !name"
             @click.prevent="updateUser"
@@ -304,6 +307,19 @@
         </div>
       </form>
     </div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">
+      <div
+        class="
+          grid grid-cols-1
+          sm:grid-cols-2
+          md:grid-cols-2
+          lg:grid-cols-3
+          gap-6
+        "
+      >
+        <MedicalHistoryUser :medicalHistory="user.historyClinical" />
+      </div>
+    </div>
   </section>
 </template>
 
@@ -312,9 +328,11 @@ import { useStore } from "vuex";
 import { ref } from "@vue/reactivity";
 import LoadingComponent from "@/components/layout/LoadingComponent.vue";
 import NotifyComponent from "@/components/layout/NotifyComponent.js";
+import MedicalHistoryUser from "./MedicalHistoryUser.vue";
 export default {
   components: {
     LoadingComponent,
+    MedicalHistoryUser,
   },
   props: {
     user: Object,
