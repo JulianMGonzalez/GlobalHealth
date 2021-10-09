@@ -21,10 +21,8 @@
         />
       </div>
       <div class="lg:w-1/2">
-        <p class="text-base text-gray-700 md:text-lg">
-          Nuestro servicios se enfocan en mejorar su atención en salud, evitando
-          tramites y demoras que obstaculizan una buena prestacíon de salud.
-        </p>
+        <ParagraphSection description="Nuestro servicios se enfocan en mejorar su atención en salud, evitando
+          tramites y demoras que obstaculizan una buena prestacíon de salud." class="text-xl text-gray-600"/>
       </div>
     </div>
     <div class="flex flex-wrap justify-center items-center">
@@ -57,9 +55,7 @@
               />
               <div class="mt-4 text-blue-600 text-center">
                 <h1 class="text-xl font-bold nav">{{ item.name }}</h1>
-                <p class="mt-4 text-gray-600 font-medium">
-                  {{ item.abstract }}
-                </p>
+                <ParagraphSection :description="item.abstract" class="mt-5 text-gray-600"/>
                 <router-link
                   :to="item.href"
                   class="
@@ -90,12 +86,13 @@
   </div>
 </template>
 <script>
+import ParagraphSection from '../ParagraphSection.vue';
 import TitleSection from "../TitleSection.vue";
 const servicesCard = [
   {
     name: "Historial clinico",
     abstract:
-      "Podrás visualizar de forma fácil y sencilla toda la documentación digital de tu historial clinico (procedimiento,medicación y personal medico.",
+      "Podrás visualizar de forma fácil y sencilla toda la documentación digital de tu historial clinico.",
     href: "/",
     icon: "stethoscope",
   },
@@ -115,7 +112,7 @@ const servicesCard = [
   },
 ];
 export default {
-  components: { TitleSection },
+  components: { TitleSection, ParagraphSection },
   setup() {
     return {
       servicesCard,

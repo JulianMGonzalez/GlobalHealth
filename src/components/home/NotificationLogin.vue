@@ -5,9 +5,7 @@
         <font-awesome-icon icon="info-circle" size="lg" class="text-white"/>
         <div class="flex flex-col ml-3 text-white">
           <TitleSection title="Ingresa a tu cuenta!" class="text-2xl text-white"/>
-          <p class="text-xl leading-none mt-1 nav">
-           Tendrás la posibilidad de encontar diferentes servicos.
-          </p>
+          <ParagraphSection description="Tendrás la posibilidad de encontar diferentes servicos." class="text-white leading-none mt-1"/>
         </div>
       </div>
       <router-link
@@ -34,9 +32,10 @@
 </template>
 
 <script>
+import ParagraphSection from '../ParagraphSection.vue';
 import TitleSection from '../TitleSection.vue';
 export default {
-  components: { TitleSection },};
+  components: { TitleSection, ParagraphSection },};
 </script>
 
 <style scoped>

@@ -31,13 +31,12 @@
                     title="Bienvenidos a nuestra plataforma de salud, Mejora tu experiencia en tramites."
                     class="text-3xl text-gray-600 md:text-center"
                   />
-
-                  <p class="text-base text-gray-700 md:text-lg nav">
-                    Nos comprometemos en mejorar tu experiencia con cualquier
+                  <ParagraphSection
+                    description="Nos comprometemos en mejorar tu experiencia con cualquier
                     tipo de entidades de salud, a través de nuestro servicios
-                    que grantizan una nueva forma de atender a nuestros
-                    pacientes de forma digital y eficaz.
-                  </p>
+                    que grantizan una nueva forma de atender a nuestros pacientes de forma digital y eficaz."
+                    class="text-gray-600"
+                  />
                 </div>
               </div>
             </div>
@@ -49,9 +48,10 @@
 </template>
 
 <script>
+import ParagraphSection from "../ParagraphSection.vue";
 import TitleSection from "../TitleSection.vue";
 export default {
-  components: { TitleSection },
+  components: { TitleSection, ParagraphSection },
   name: "BannerHome",
 };
 </script>

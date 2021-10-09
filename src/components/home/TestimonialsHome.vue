@@ -6,10 +6,10 @@
           title="Aquí todos son escuchados"
           class="text-gray-600 text-3xl md:text-5xl"
         />
-        <h3 class="text-xl mb-5 font-light">
-          GlobalHealth comprende las necesidades de nuestros usuarios por lo
-          cual siempre escucharemos sus sugerencias para mejorar cada día.
-        </h3>
+        <ParagraphSection class="mb-5 text-gray-600"
+          description="GlobalHealth comprende las necesidades de nuestros usuarios por lo
+          cual siempre escucharemos sus sugerencias para mejorar cada día."
+        />
         <div class="text-center mb-10">
           <span class="inline-block w-40 h-1 rounded-full bg-indigo-500"></span>
         </div>
@@ -56,6 +56,7 @@
 </template>
 
 <script>
+import ParagraphSection from "../ParagraphSection.vue";
 import TitleSection from "../TitleSection.vue";
 const arrayTestiomonials = [
   {
@@ -87,6 +88,7 @@ export default {
   name: "TestimonialsHome",
   components: {
     TitleSection,
+    ParagraphSection,
   },
   setup() {
     return {
