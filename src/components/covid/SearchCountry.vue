@@ -38,22 +38,19 @@
 </template>
 
 <script>
+import { ref } from '@vue/reactivity';
 export default {
-  data() {
-    return {
-      buscar: "",
-    };
-  },
-  methods: {
-    searchCountry() {
-      if(this.buscar === ""){
+  setup(props, {emit}){
+    const buscar = ref('')
+    const searchCountry = () => {
+      if(buscar.value === ""){
         return
       }
-      this.$emit("buscar", this.buscar);
-    },
-  },
+      emit("buscar", buscar.value);
+    }
+    return{
+      buscar, searchCountry
+    }
+  }
 };
 </script>
-
-<style>
-</style>

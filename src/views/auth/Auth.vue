@@ -133,7 +133,6 @@
           right-0
           mt-16
           -mr-10
-          flex
           items-center
           shadow
           rounded-tr rounded-br
@@ -163,7 +162,6 @@
               class="
                 flex
                 items-center
-                flex
                 p-2
                 rounded-2xl
                 focus:shadow-outline
@@ -198,7 +196,6 @@
               class="
                 flex
                 items-center
-                flex
                 p-2
                 rounded-2xl
                 focus:shadow-outline
@@ -227,26 +224,26 @@
 </template>
 
 <script>
+import { ref } from '@vue/reactivity';
 export default {
   name: "LightWithIconsAtBottom",
-  data() {
-    return {
-      moved: true,
-    };
-  },
-  methods: {
-    sidebarHandler() {
+  setup(){
+    const moved = ref(true)
+    const sidebarHandler = () => {
       var sideBar = document.getElementById("mobile-nav");
       sideBar.style.transform = "translateX(-260px)";
-      if (this.$data.moved) {
+      if (moved.value) {
         sideBar.style.transform = "translateX(0px)";
-        this.$data.moved = false;
+        moved.value = false;
       } else {
         sideBar.style.transform = "translateX(-260px)";
-        this.$data.moved = true;
+        moved.value = true;
       }
-    },
-  },
+    }
+    return {
+      sidebarHandler
+    }
+  }
 };
 </script>
 <style scoped>
