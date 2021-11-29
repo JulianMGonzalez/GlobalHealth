@@ -17,6 +17,7 @@
         transform hover:scale-110 motion-reduce:transform-none
         focus:outline-none
       "
+      onclick="window.open('https://wa.me/573232477487', '_blank')"
     >
       <font-awesome-icon
               :icon="['fab', 'whatsapp']"
