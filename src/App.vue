@@ -5,15 +5,18 @@
   <router-view />
   <notifications position="bottom right" width="400"/>
   <FooterComponent />
+  <FloatButton />
 </template>
 
 <script>
 import NavbarComponent from "./components/layout/NavBar/NavbarComponent.vue";
 import FooterComponent from "@/components/layout/Footer/FooterComponent.vue";
+import FloatButton from '@/components/layout/FloatButton.vue';
 export default {
   components: {
     NavbarComponent,
     FooterComponent,
+    FloatButton
   },
 };
 </script>
