@@ -59,12 +59,10 @@
                 uppercase
                 tracking-wider
                 border
+                rounded-lg
                 px-2
-                text-indigo-600
-                border-indigo-600
-                hover:bg-indigo-600
-                hover:text-indigo-100
-                cursor-default
+                text-blue-600
+                border-blue-600
               "
             >
               {{ target }}
@@ -72,6 +70,7 @@
           </div>
         </div>
       </div>
+      {{users}}
     </section>
   </div>
 </template>
@@ -106,7 +105,7 @@ export default {
   },
   setup() {
     return {
-      infoDoctors,
+      infoDoctors
     };
   },
 };
