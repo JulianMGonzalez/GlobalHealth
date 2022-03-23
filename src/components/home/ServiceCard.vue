@@ -44,6 +44,8 @@
               duration-500
               mx-auto
               md:mx-0
+              dark:bg-gray-600
+              dark:border-gray-500
             "
           >
             <div class="w-sm text-center">
@@ -54,7 +56,7 @@
                 class="text-blue-600"
               />
               <div class="mt-4 text-blue-600 text-center">
-                <h1 class="text-xl font-bold nav">{{ item.name }}</h1>
+                <h1 class="text-xl font-bold nav dark:text-gray-50">{{ item.name }}</h1>
                 <ParagraphSection :description="item.abstract" class="mt-5 text-gray-600"/>
                 <router-link
                   :to="item.href"
@@ -73,6 +75,7 @@
                     hover:text-blue-600
                     transition
                     duration-200
+                    dark:border-gray-500
                   "
                 >
                   Más

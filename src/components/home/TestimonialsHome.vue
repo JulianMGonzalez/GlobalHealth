@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-blue-50 mt-6 py-1 rounded-xl">
+  <section class="bg-blue-50 mt-6 py-1 rounded-xl dark:bg-gray-600">
     <div class="container px-5 my-16 mx-auto">
       <div class="text-center max-w-xl mx-auto">
         <TitleSection
@@ -22,7 +22,7 @@
           :key="item"
         >
           <!-- component -->
-          <div class="max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20">
+          <div class="max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20 dark:bg-gray-700">
             <div class="flex justify-center md:justify-end -mt-16">
               <img
                 class="
@@ -37,7 +37,7 @@
               />
             </div>
             <div>
-              <h2 class="text-gray-800 text-2xl font-semibold">
+              <h2 class="text-gray-800 text-2xl font-semibold dark:text-gray-50">
                 {{ item.nombre }}
               </h2>
               <ParagraphSection

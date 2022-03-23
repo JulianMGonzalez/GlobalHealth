@@ -22,9 +22,9 @@ const fromApiResponseToUsers = (apiResponse, history) => {
   }
   if (Array.isArray(data)) {
     const users = data.map(userItem => {
-      const { _id, name, email, phone, createdAt, gender } = userItem
+      const { _id, name, email, phone, createdAt, gender, rol } = userItem
       const dateFormat = new Date(createdAt).toLocaleString()
-      return { _id, name, email, phone, dateFormat, gender }
+      return { _id, name, email, phone, dateFormat, gender, rol }
     })
     return users
   }

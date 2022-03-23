@@ -1,5 +1,5 @@
 <template>
-  <Popover class="relative z-50 nav">
+  <Popover class="relative z-50 nav dark:bg-gray-700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div
         class="
@@ -7,14 +7,29 @@
           justify-between
           items-center
           py-6
-          md:justify-start
-          md:space-x-10
+          md:justify-start md:space-x-10
         "
       >
-        <div class="flex lg:w-0 lg:flex-1 items-center justify-between space-x-10 nav">
+        <div
+          class="
+            flex
+            lg:w-0 lg:flex-1
+            items-center
+            justify-between
+            space-x-10
+            nav
+          "
+        >
           <a href="/">
             <span class="sr-only">GlobalHealth</span>
             <img
+              v-if="store.state.User.theme === 'dark'"
+              class="h-8 w-auto sm:h-10"
+              src="@/assets/logo_white_large.png"
+              alt="globalHealth"
+            />
+            <img
+              v-else
               class="h-8 w-auto sm:h-10"
               src="@/assets/logo.svg"
               alt="globalHealth"
@@ -23,22 +38,40 @@
           <PopoverGroup as="nav" class="hidden md:flex space-x-10">
             <router-link
               to="/noticias"
-              class="text-base font-medium text-gray-500 hover:text-gray-900"
+              class="
+                text-base
+                font-medium
+                text-gray-500
+                hover:text-gray-900
+                dark:text-gray-50
+              "
             >
               Noticias
             </router-link>
             <router-link
               to="/informacion"
-              class="text-base font-medium text-gray-500 hover:text-gray-900"
+              class="
+                text-base
+                font-medium
+                text-gray-500
+                hover:text-gray-900
+                dark:text-gray-50
+              "
             >
               Información
             </router-link>
             <NoticiasNavBar :responsive="true" />
           </PopoverGroup>
         </div>
-        <NavProfile class="md:hidden" v-if="this.$store.state.User.LoggedIn"
-          :image="this.$store.state.User.user ?
-          this.$store.state.User.user.avatar : noPhoto "/>
+        <NavProfile
+          class="md:hidden"
+          v-if="this.$store.state.User.LoggedIn"
+          :image="
+            this.$store.state.User.user
+              ? this.$store.state.User.user.avatar
+              : noPhoto
+          "
+        />
         <div class="-mr-2 -my-2 md:hidden">
           <PopoverButton
             class="
@@ -49,10 +82,11 @@
               items-center
               justify-center
               text-gray-400
-              hover:text-gray-500
-              hover:bg-gray-100
+              hover:text-gray-500 hover:bg-gray-100
               focus:outline-none
-              focus:ring-2 focus:ring-inset focus:ring-indigo-500
+              focus:ring-2
+              focus:ring-inset
+              focus:ring-indigo-500
             "
           >
             <span class="sr-only">Abir Menu</span>
@@ -62,9 +96,14 @@
         <div
           class="hidden md:flex items-center justify-end md:flex-1 lg:w-0 nav"
         >
-          <NavProfile v-if="this.$store.state.User.LoggedIn"
-          :image="this.$store.state.User.user ?
-          this.$store.state.User.user.avatar : noPhoto "/>
+          <NavProfile
+            v-if="this.$store.state.User.LoggedIn"
+            :image="
+              this.$store.state.User.user
+                ? this.$store.state.User.user.avatar
+                : noPhoto
+            "
+          />
           <div v-else>
             <router-link
               to="/ingresa"
@@ -136,10 +175,11 @@
                     items-center
                     justify-center
                     text-gray-400
-                    hover:text-gray-500
-                    hover:bg-gray-100
+                    hover:text-gray-500 hover:bg-gray-100
                     focus:outline-none
-                    focus:ring-2 focus:ring-inset focus:ring-indigo-500
+                    focus:ring-2
+                    focus:ring-inset
+                    focus:ring-indigo-500
                   "
                 >
                   <span class="sr-only">Cerrar menu</span>
@@ -177,7 +217,10 @@
               <p class="mt-6 text-center text-base font-medium text-gray-500">
                 Tienes usuario?
                 {{ " " }}
-                <a href="/ingresa" class="text-indigo-600 hover:text-indigo-500">
+                <a
+                  href="/ingresa"
+                  class="text-indigo-600 hover:text-indigo-500"
+                >
                   Ingresa
                 </a>
               </p>
@@ -198,7 +241,9 @@ import {
 } from "@headlessui/vue";
 import NoticiasNavBar from "./NoticiasNavBar.vue";
 import NavProfile from "../../profile/NavProfile.vue";
-import noPhoto from '@/assets/noPhoto.png'
+import noPhoto from "@/assets/noPhoto.png";
+import { useStore } from 'vuex';
+
 
 const solutions = [
   {
@@ -229,9 +274,11 @@ export default {
     NavProfile,
   },
   setup() {
+    const store = useStore()
     return {
       solutions,
-      noPhoto
+      noPhoto,
+      store
     };
   },
 };

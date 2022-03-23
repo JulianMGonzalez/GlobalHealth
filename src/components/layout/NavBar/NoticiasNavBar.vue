@@ -3,7 +3,7 @@
     <Popover class="relative" v-slot="{ open }">
       <PopoverButton
         :class="[
-          open ? 'text-gray-900' : 'text-gray-500',
+          open ? 'text-gray-900 dark:text-gray-400' : 'text-gray-500 dark:text-gray-50',
           'group rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500',
         ]"
       >

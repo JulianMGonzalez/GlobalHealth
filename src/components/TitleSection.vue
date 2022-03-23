@@ -8,6 +8,7 @@
       sm:leading-none
       xl:max-w-lg
       title
+      dark:text-white
     "
   >
     {{ title }}

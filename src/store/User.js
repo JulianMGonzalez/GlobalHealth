@@ -3,13 +3,15 @@ import router from "../router";
 
 const token = localStorage.getItem('token')
 const user = JSON.parse(localStorage.getItem('user'))
+const theme = localStorage.getItem('theme')
 
 const initialState = {
     token: token || "",
     user: null || user,
     isLoading: false,
     LoggedIn: Boolean(token),
-    errorMessage: null
+    errorMessage: null,
+    theme: theme || 'light',
 };
 export const User = {
     state: initialState,
@@ -62,11 +64,11 @@ export const User = {
                 } */
             }
         },
-        async register({commit}, user){
+        async register({ commit }, user) {
             commit('register')
             try {
                 const userRegister = await register(user)
-                if(userRegister) {
+                if (userRegister) {
                     commit('registerSuccess')
                 }
                 return userRegister.data
@@ -75,7 +77,32 @@ export const User = {
                     commit('registerFailure', { payload: error.response.data.message })
                 }
             }
+        },
+        initTheme({ commit }) {
+            const cachedTheme = localStorage.theme ? localStorage.theme : false;
+            //  `true` if the user has set theme to `dark` on browser/OS
+            const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (cachedTheme)
+                commit('updateTheme', cachedTheme)
+            else if (userPrefersDark)
+                commit('updateTheme', 'dark')
+            else
+                commit('updateTheme', 'light')
+
+        },
+        toggleTheme({ commit }) {
+            switch (localStorage.theme) {
+                case 'light':
+                    commit('updateTheme', 'dark')
+                    break;
+
+                default:
+                    commit('updateTheme', 'light')
+                    break;
+            }
         }
+
     },
     mutations: {
         login(state) {
@@ -111,15 +138,24 @@ export const User = {
             state.errorMessage = payload
             state.isLoading = false
         },
-        register(state){
+        register(state) {
             state.isLoading = true
         },
-        registerSuccess(state){
+        registerSuccess(state) {
             state.isLoading = false
         },
-        registerFailure(state, payload){
+        registerFailure(state, payload) {
             state.errorMessage = payload
             state.isLoading = false
+        },
+        updateTheme(state, payload) {
+            state.theme = payload
+            localStorage.theme = payload
+        }
+    },
+    getters: {
+        getTheme: (state) => {
+            return state.theme;
         }
     }
 }

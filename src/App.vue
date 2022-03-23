@@ -2,7 +2,7 @@
   <div id="nav">
     <NavbarComponent />
   </div>
-  <router-view />
+  <router-view class=""/>
   <notifications position="bottom right" width="400"/>
   <FooterComponent />
   <FloatButton />
@@ -12,12 +12,20 @@
 import NavbarComponent from "./components/layout/NavBar/NavbarComponent.vue";
 import FooterComponent from "@/components/layout/Footer/FooterComponent.vue";
 import FloatButton from '@/components/layout/FloatButton.vue';
+import { onBeforeMount } from '@vue/runtime-core';
+import { useStore } from 'vuex';
 export default {
   components: {
     NavbarComponent,
     FooterComponent,
     FloatButton
   },
+  setup(){
+    const store = useStore()
+    onBeforeMount(()=>{
+      store.dispatch('initTheme')
+    })
+  }
 };
 </script>
 <style>

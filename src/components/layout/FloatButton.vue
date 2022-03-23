@@ -10,8 +10,15 @@
           rounded-full
           active:shadow-lg
           shadow
+          transition
+          ease-in
+          duration-200
+          transform
+          hover:scale-110
+          motion-reduce:transform-none
           focus:outline-none
         "
+        @click="cambiarTema"
       >
         <font-awesome-icon :icon="['fa', 'sun']" size="lg" class="text-white" />
       </button>
@@ -48,7 +55,36 @@
 </template>
 
 <script>
-export default {};
+import { computed, watch } from '@vue/runtime-core';
+import { useStore  } from 'vuex';
+export default {
+  setup() {
+    const store = useStore()
+    const theme = computed(() => store.getters['getTheme'])
+    watch(theme, (newTheme)=>{
+      newTheme === "light"
+        ? document.querySelector("html").classList.remove("dark")
+        : document.querySelector("html").classList.add("dark");
+    })
+    const cambiarTema = () => {
+      store.dispatch("toggleTheme")
+/*       if (theme) {
+        if(theme === 'light'){
+          store.commit('updateTheme', 'dark')
+          document.documentElement.classList.add("dark");
+        }else{
+          store.commit('updateTheme', 'light')
+          document.documentElement.classList.remove("dark");
+        }
+      } else {
+        store.commit('updateTheme', 'light')
+      } */
+    };
+    return {
+      cambiarTema,
+    };
+  },
+};
 </script>
 
 <style>

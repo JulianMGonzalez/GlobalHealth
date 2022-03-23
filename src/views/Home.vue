@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home dark:bg-gray-700">
     <BannerHome />
     <ServiceCard />
     <TestimonialsHome />
