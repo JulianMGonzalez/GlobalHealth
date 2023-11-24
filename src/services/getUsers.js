@@ -2,8 +2,8 @@ import axios from "axios";
 import { API_GLOBALHEALTH } from "./settings";
 
 const userAxios = axios.create({
-  baseURL: `${API_GLOBALHEALTH}/usuario`,
-
+  baseURL: `${API_GLOBALHEALTH}/api/usuario`,
+  
 })
 userAxios.interceptors.request.use(function (config) {
   config.headers.token = `${localStorage.getItem('token')}`

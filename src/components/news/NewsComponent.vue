@@ -88,10 +88,7 @@ export default {
     const getNews = async () => {
       try {
         let response = await News();
-        const filterResponse = response.filter(
-          (item) => item.urlToImage !== null
-        );
-        listNews.value = filterResponse || null;
+        listNews.value = response
       } catch (error) {
         console.log(error);
       }
